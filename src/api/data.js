@@ -10,13 +10,18 @@ router.get('/shoes', async (req, res) => {
             text: 'SELECT * FROM shoes'
         };
         let { rows } = await db.query(query);
-        return res.status(200).json(rows);
+        return res
+            .status(200)
+            .json(rows);
     } catch (err) {
+        let error = err.message || err;
         logger.log({
             level: 'error',
-            message: err
+            message: error
         });
-        return res.sendStatus(500);
+        return res
+            .status(500)
+            .json({ error: error });
     }
 });
 
@@ -40,11 +45,14 @@ router.get('/fits/:id', async (req, res) => {
                 .json({ message: `Shoe not found with id [${shoeId}]` })
         }
     } catch (err) {
+        let error = err.message || err;
         logger.log({
             level: 'error',
-            message: err
+            message: error
         });
-        return res.sendStatus(500);
+        return res
+            .status(500)
+            .json({ error: error });
     }
 });
 

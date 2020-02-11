@@ -35,11 +35,14 @@ router.get('/true-to-size/:id', async (req, res) => {
                 .json({message: `No data found for id [${shoeId}]`});
         }
     } catch (err) {
+        let error = err.message || err;
         logger.log({
             level: 'error',
             message: err
         });
-        res.sendStatus(500);
+        return res
+            .status(500)
+            .json({ error: error });
     }
 });
 

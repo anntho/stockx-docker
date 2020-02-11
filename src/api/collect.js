@@ -43,8 +43,11 @@ router.post('/fit', async (req, res) => {
             }
         }
     } catch (err) {
-        logger.log({ level: 'error', message: err });
-        res.sendStatus(500);
+        let error = err.message || err;
+        logger.log({ level: 'error', message: error });
+        return res
+            .status(500)
+            .json({ error: error });
     }
 });
 
