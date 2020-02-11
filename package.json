@@ -1,0 +1,32 @@
+{
+  "name": "stockx-challenge",
+  "version": "1.0.0",
+  "description": "Software Engineer Challenge StockX",
+  "main": "server.js",
+  "scripts": {
+    "start": "node ./bin/start.js",
+    "prod": "node ./bin/start.js",
+    "dev": "nodemon ./bin/start.js",
+    "migrate": "node ./bin/migrate.js",
+    "migrate:create": "migrate create --migrations-dir='./src/migrations'"
+  },
+  "keywords": [
+    "express",
+    "postgres"
+  ],
+  "author": "Anthony Pecoraro",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "helmet": "^3.16.0",
+    "migrate": "^1.6.2",
+    "morgan": "^1.9.1",
+    "pg": "^7.9.0",
+    "sql-template-strings": "^2.2.2",
+    "winston": "^3.2.1",
+    "app-root-path": "^3.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.11"
+  }
+}
