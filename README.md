@@ -1,7 +1,7 @@
 # stockx-docker
 
 Requirements:
-[Docker Desktop](https://pages.github.com/).
+[Docker Desktop](https://www.docker.com/products/docker-desktop/).
 
 Overview: 
 Node.js runtime w/Express.js + Postgresql
