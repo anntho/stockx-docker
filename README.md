@@ -1,14 +1,14 @@
 # stockx-docker
 
 Requirements:
-[Docker Desktop]((https://pages.github.com/))
+[Docker Desktop](https://pages.github.com/).
 
 Overview: 
 Node.js runtime w/Express.js + Postgresql
-This app supports both production and development modes.
-Prod and Dev environments are controlled by docker-compose files
 
-Run in Development: 
+This app supports both production and development modes please see (docker-compose.yml & docker-compose-prod.yml).
+
+Run in Development:
 ```
 docker-compose up
 ```
@@ -22,7 +22,7 @@ To roll back database migration
 docker-compose run app bash
 npm run migrate down
 ```
-Note: database migrations are stored in .migrate
+Note: database migrations are stored in .migrate.
 
 ----------------------------------------------------
 
@@ -30,4 +30,12 @@ Run in Production:
 ```
 docker-compose -f docker-compose-prod.yml up
 ```
-Note: For the purpose of this demo log files persist in production mode
+
+----------------------------------------------------
+
+API Reference:
+
+POST  /api/collect/fit - Post fit data in json format 
+GET   /api/data/shoes - Retrieve shoes data from the database
+GET   /api/data/fits/:id - Get fit data by shoeId 
+GET   /api/metrics/true-to-size/:id - Get trueToSizeCalculation by shoeId
