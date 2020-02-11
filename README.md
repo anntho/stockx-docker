@@ -4,9 +4,9 @@ Requirements:
 [Docker Desktop](https://www.docker.com/products/docker-desktop/).
 
 Overview: 
-Node.js runtime w/Express.js + Postgresql
-
-This app supports both production and development modes please see (docker-compose.yml & docker-compose-prod.yml).
+* Node.js runtime w/Express.js + Postgresql
+* This app supports both production and development modes please see (docker-compose.yml & docker-compose-prod.yml).
+* Development mode runs nodemon in order to pick up changes and adds logging to the console.
 
 Run in Development:
 ```
@@ -35,7 +35,21 @@ docker-compose -f docker-compose-prod.yml up
 
 API Reference:
 
-POST  /api/collect/fit - Post fit data in json format 
-GET   /api/data/shoes - Retrieve shoes data from the database
-GET   /api/data/fits/:id - Get fit data by shoeId 
-GET   /api/metrics/true-to-size/:id - Get trueToSizeCalculation by shoeId
+* POST  /api/collect/fit - Post fit data in json format 
+* GET   /api/data/shoes - Retrieve shoes data from the database
+* GET   /api/data/fits/:id - Get fit data by shoeId 
+* GET   /api/metrics/true-to-size/:id - Get trueToSizeCalculation by shoeId
+
+----------------------------------------------------
+
+Extra commands:
+* Development
+```
+docker-compose down
+docker-compose build --no-cache
+```
+* Production
+```
+docker-compose -f docker-compose-prod.yml down
+docker-compose -f docker-compose-prod.yml build --no-cache
+```
